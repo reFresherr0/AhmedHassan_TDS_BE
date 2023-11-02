@@ -1,5 +1,5 @@
 def capitalize_sentence(sentence):
-    words = sentence.split()
+    words = sentence.split()   # split the sentence into words  
     capitalized_words = [word.capitalize() for word in words]   # The capitalize() method returns a string where the first character is upper case.
     return " ".join(capitalized_words)
 

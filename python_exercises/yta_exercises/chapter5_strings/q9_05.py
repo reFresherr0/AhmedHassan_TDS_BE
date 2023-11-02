@@ -9,6 +9,6 @@ def unique_words(sentence):
     # convert the set back to a list and return it
     return list(unique_words)
 
-# example usage
+# Test
 sentence = "the quick brown fox jumps over the lazy dog"
-print(unique_words(sentence)) # output: ['brown', 'the', 'jumps', 'over', 'fox', 'dog', 'lazy', 'quick']
+print(unique_words(sentence))
