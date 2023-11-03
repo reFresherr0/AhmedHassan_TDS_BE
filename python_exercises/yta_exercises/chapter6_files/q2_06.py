@@ -1,3 +1,3 @@
-with open('my_file.txt', 'r') as file:
-    contents = file.read()
+with open('my_file.txt', 'r') as f:
+    contents = f.read()
     print(contents)
