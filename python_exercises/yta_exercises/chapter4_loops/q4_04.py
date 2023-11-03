@@ -1,4 +1,4 @@
-string = "Ahmed Hassan"
+string = 'Ahmed Hassan'
 uppercase_chars = []
 
 for char in string:

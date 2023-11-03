@@ -10,5 +10,5 @@ def unique_words(sentence):
     return list(unique_words)
 
 # Test
-sentence = "the quick brown fox jumps over the lazy dog"
+sentence = 'the quick brown fox jumps over the lazy dog'
 print(unique_words(sentence))

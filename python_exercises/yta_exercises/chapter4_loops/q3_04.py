@@ -1,4 +1,4 @@
-names = ["Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Henry", "Isabel", "Jack", "Kate", "Liam", "Mia", "Nancy", "Oliver", "Peter", "Quinn", "Rose", "Sarah", "Tom", "Uma", "Victor", "Wendy", "Xander", "Yara", "Zoe"]
+names = ['Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace', 'Henry', 'Isabel', 'Jack', 'Kate', 'Liam', 'Mia', 'Nancy', 'Oliver', 'Peter', 'Quinn', 'Rose', 'Sarah', 'Tom', 'Uma', 'Victor', 'Wendy', 'Xander', 'Yara', 'Zoe']
 
 vowels = 'aeiou'
 

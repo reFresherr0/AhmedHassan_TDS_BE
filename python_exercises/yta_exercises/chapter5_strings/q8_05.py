@@ -1,6 +1,6 @@
-string = "The quick brown fox jumps over the lazy dog"
-old_word = "fox"
-new_word = "cat"
+string = 'The quick brown fox jumps over the lazy dog'
+old_word = 'fox'
+new_word = 'cat'
 
 # split the string into a list of words
 words = string.split()
@@ -11,6 +11,6 @@ for i in range(len(words)):
         words[i] = new_word
 
 # join the words back into a string
-new_string = " ".join(words)
+new_string = ' '.join(words)
 
 print(new_string)

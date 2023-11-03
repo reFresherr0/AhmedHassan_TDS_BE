@@ -7,6 +7,6 @@ def is_anagram(str1, str2):
     return sorted(str1) == sorted(str2)
 
 # Test
-print(is_anagram("Listen", "silent"))
-print(is_anagram("Astronomer", "Moon starer"))
-print(is_anagram("Hello", "World"))
+print(is_anagram('Listen', 'silent'))
+print(is_anagram('Astronomer', 'Moon starer'))
+print(is_anagram('Hello', 'World'))
