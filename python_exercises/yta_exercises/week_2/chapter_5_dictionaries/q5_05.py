@@ -4,4 +4,4 @@ def remove_key(dictionary, key):
     return dictionary
 
 # Test:
-print(remove_key({'a': 1, 'b': 2, 'c': 3}, 'b'))
+print(remove_key({'a': 1, 'b': 2, 'c': 3}, 'b'))  
