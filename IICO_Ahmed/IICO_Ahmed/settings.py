@@ -40,12 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     'drf_yasg',
-    # 
     'rest_framework',
     'djoser',
     'socialapps',
     'tags',
     'activationkeys',
+    'notifications',
 ]
 
 MIDDLEWARE = [

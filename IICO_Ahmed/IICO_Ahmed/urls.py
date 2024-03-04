@@ -44,4 +44,5 @@ urlpatterns = [
          
     path('api/v1/', include('users.urls')),
     path('social/', include('socialapps.urls')),
+    path('notifications/', include('notifications.urls')),
 ]
