@@ -1,10 +1,9 @@
 from django.shortcuts import render
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.filters import OrderingFilter, SearchFilter
 from .models import Notification
 from .serializers import NotificationsSerializer , NotificationsCreateSerializer
-from rest_framework.generics import RetrieveUpdateDestroyAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import PermissionDenied
@@ -16,7 +15,7 @@ from rest_framework import status
 class NotificationListCreateView(ListCreateAPIView):
     queryset = Notification.objects.all()
     serializer_class = NotificationsSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, ]
     filter_backends = [OrderingFilter, SearchFilter]
     ordering_fields = ['created_at']
     search_fields = ['user_to__username', 'user_from__username']
@@ -32,7 +31,7 @@ class NotificationListCreateView(ListCreateAPIView):
 class NotificationRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
     queryset = Notification.objects.all()
     serializer_class = NotificationsSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, ]
 
     def get_object(self):
         obj = super().get_object()
@@ -52,7 +51,7 @@ class NotificationRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
 
 
 class NotificationCountView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, ]
 
     def get(self, request):
         count = Notification.objects.filter(user_to=request.user, is_read=False).count()
