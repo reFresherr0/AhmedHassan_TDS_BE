@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.filters import OrderingFilter, SearchFilter
 from .models import Notification
 from .serializers import NotificationsSerializer , NotificationsCreateSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.exceptions import PermissionDenied
 from rest_framework import status
+from .permissions import UserToPermission
 
 
 # Create your views here.
@@ -15,10 +15,10 @@ from rest_framework import status
 class NotificationListCreateView(ListCreateAPIView):
     queryset = Notification.objects.all()
     serializer_class = NotificationsSerializer
-    permission_classes = [IsAuthenticated, ]
+    permission_classes = [IsAuthenticated]
     filter_backends = [OrderingFilter, SearchFilter]
-    ordering_fields = ['created_at']
     search_fields = ['user_to__username', 'user_from__username']
+    ordering_fields = ['created_at']
 
     def create(self, request, *args, **kwargs):
         serializer = NotificationsCreateSerializer(data=request.data)
@@ -31,27 +31,12 @@ class NotificationListCreateView(ListCreateAPIView):
 class NotificationRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
     queryset = Notification.objects.all()
     serializer_class = NotificationsSerializer
-    permission_classes = [IsAuthenticated, ]
-
-    def get_object(self):
-        obj = super().get_object()
-        if obj.user_to != self.request.user:
-            raise PermissionDenied("You cannot access this notification.")
-        return obj
-
-    def update(self, request, *args, **kwargs):
-        if not request.user.is_superuser:
-            raise PermissionDenied("Only superusers can update notifications.")
-        return super().update(request, *args, **kwargs)
-
-    def destroy(self, request, *args, **kwargs):
-        if not request.user.is_superuser:
-            raise PermissionDenied("Only superusers can delete notifications.")
-        return super().destroy(request, *args, **kwargs)
+    permission_classes = [UserToPermission]
+    lookup_field='id'
 
 
 class NotificationCountView(APIView):
-    permission_classes = [IsAuthenticated, ]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request):
         count = Notification.objects.filter(user_to=request.user, is_read=False).count()

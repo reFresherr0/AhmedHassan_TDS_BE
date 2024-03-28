@@ -37,9 +37,9 @@ class User(AbstractBaseUser,PermissionsMixin):
     mobile= PhoneNumberField()
     image = models.ImageField(blank=True,null=True)
     gender = models.CharField(max_length=1,null=True,blank=True,choices=GENDER_CHOICES)
-    tds_member= models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['name',]
+    REQUIRED_FIELDS = ['name', 'is_superuser']
 
     objects = UserManager()
