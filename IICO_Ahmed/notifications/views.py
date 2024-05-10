@@ -20,6 +20,14 @@ class NotificationListCreateView(ListCreateAPIView):
     search_fields = ['user_to__username', 'user_from__username']
     ordering_fields = ['created_at']
 
+    def list(self, request, *args, **kwargs):
+        if request.user.is_superuser:
+            return super().list(request, *args, **kwargs)
+        else:
+            queryset = self.get_queryset().filter(user_to=request.user)
+            serializer = self.get_serializer(queryset, many=True)
+            return Response(serializer.data)
+
     def create(self, request, *args, **kwargs):
         serializer = NotificationsCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
