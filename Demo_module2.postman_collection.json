@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "95c9d4ad-5659-447f-ac68-10371192a1eb",
+		"name": "Django",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31066434"
+	},
+	"item": [
+		{
+			"name": "List all packages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://4613-154-191-84-255.ngrok-free.app/packages/",
+					"protocol": "https",
+					"host": [
+						"4613-154-191-84-255",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"packages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Package",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"name\": \"kiiiii\",\n        \"price\": 175,\n        \"allowed_users\": 35,\n        \"is_active\": false,\n        \"is_over\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://4613-154-191-84-255.ngrok-free.app/packages/",
+					"protocol": "https",
+					"host": [
+						"4613-154-191-84-255",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"packages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Package",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"price\": 195\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://4613-154-191-84-255.ngrok-free.app/packages/generic/9",
+					"protocol": "https",
+					"host": [
+						"4613-154-191-84-255",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"packages",
+						"generic",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get package details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://4613-154-191-84-255.ngrok-free.app/packages/generic/10",
+					"protocol": "https",
+					"host": [
+						"4613-154-191-84-255",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"packages",
+						"generic",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Package",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://4613-154-191-84-255.ngrok-free.app/packages/generic/10",
+					"protocol": "https",
+					"host": [
+						"4613-154-191-84-255",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"packages",
+						"generic",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
