@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <menuitem
+        id="demo_packages_menu_root"
+        name="Demo Packages"
+        sequence="1">
+
+        <menuitem
+            id="packages_menu"
+            name="Packages"
+            action="action_demo_packages"
+            sequence="10"/>
+
+    </menuitem>
+
+    
+
+
+   
+
+
+</odoo>

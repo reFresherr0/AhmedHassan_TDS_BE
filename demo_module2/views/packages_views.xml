@@ -1,0 +1,45 @@
+<odoo>
+    <record id="demo_package_view_tree" model="ir.ui.view">
+        <field name="name">demo_package.view.tree</field>
+        <field name="model">demo.package</field>
+        <field name="arch" type="xml">
+            <tree string="Packages Test">
+                <field name="name"/>
+                <field name="price"/>
+                <field name="allowed_users"/>
+                <field name="is_active"/>
+                <field name="is_over"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="demo_package_view_form" model="ir.ui.view">
+        <field name="name">demo_package.view.form</field>
+        <field name="model">demo.package</field>
+        <field name="arch" type="xml">
+            <form string="Packages Test">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="price"/>
+                        <field name="allowed_users"/>
+                        <field name="is_active"/>
+                        <field name="is_over"/>
+                        <field name="django_id"/>
+
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_demo_packages" model="ir.actions.act_window">
+        <field name="name">Packages</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">demo.package</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="demo_package_view_tree"/>
+        <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('demo_package_view_tree')}), (0, 0, {'view_mode': 'form', 'view_id': ref('demo_package_view_form')})]"/>
+    </record>
+</odoo>

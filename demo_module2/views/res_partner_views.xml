@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ 
+    <data>
+
+        <record id="yds_view_partner_form_custom" model="ir.ui.view">
+            <field name="name">res.partner.custom</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_registry']" position="after">
+                    <field name="ext_reg_no" />
+                    <field name="po_box"/>
+                </xpath>
+                <xpath expr="//div[@class='o_row']" position="before">
+                    <div class="o_row">
+                        <label for="partner_type"></label>
+                        <field name="partner_type"  widget="radio" options="{'horizontal': true}" />
+
+                    </div>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/div[1]" position="after">
+                    <field name="port_ids" widget="many2many_tags" />
+                </xpath>
+                
+                <!-- <xpath expr="//field[@name='website']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+
+                </xpath>
+                <xpath expr="//field[@name='website']" position="replace">
+                    <field name="port_ids" widget="many2many_tags" />
+
+                </xpath> -->
+
+              
+            </field>
+        </record>
+    
+    
+    </data>
+    
+    
+
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_demo_package_user,demo_module2.demo.package,model_demo_package,base.group_user,1,1,1,1
+access_res_port_user,demo_module2.res.port,model_res_port,base.group_user,1,1,1,1
+
